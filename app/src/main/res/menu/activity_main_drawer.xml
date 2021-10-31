@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_github_users"
+            android:icon="@drawable/ic_github"
+            android:title="@string/menu_github_user_lists" />
+        <item
+            android:id="@+id/nav_favourite"
+            android:icon="@drawable/ic_favourite"
+            android:title="@string/menu_favourite" />
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="@string/menu_setting" />
+    </group>
+</menu>

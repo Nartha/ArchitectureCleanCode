@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "394998693806",
+    "project_id": "thelynx-b5dd1",
+    "storage_bucket": "thelynx-b5dd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394998693806:android:b47eb02f33d134e925123f",
+        "android_client_info": {
+          "package_name": "com.example.thelynx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394998693806-6bafcaoo1n0dtgtd1v2hinsk5333r8gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thelynx",
+            "certificate_hash": "1c59dbf5d495e40791da682d69378f9ae98b114e"
+          }
+        },
+        {
+          "client_id": "394998693806-s00rf2hdbtjrthrq27n99pt6n60vlcsl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXTIL2sBJcBul7IOvFEmfBHFPqvc4J8Qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394998693806-s00rf2hdbtjrthrq27n99pt6n60vlcsl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

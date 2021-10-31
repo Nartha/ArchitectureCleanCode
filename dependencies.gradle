@@ -1,0 +1,118 @@
+ext {
+        //test
+        junitVersion                                     =  '4.13.2'
+
+        //android test
+        espressoCoreVersion                              =  '3.4.0'
+        androidxTestJunitVersion                         =  '1.1.3'
+
+        //android lib
+        androidxCoreKtxVersion                           =  '1.7.0'
+        androidxAppCompatVersion                         =  '1.3.1'
+        androidxActivityVersion                          =  '1.2.3'
+
+        //android lifecycle
+        androidxLifecycleLiveDataKtxVersion              =  '2.4.0'
+        androidxLifecycleViewModelKtxVersion             =  '2.4.0'
+        androidxLifecycleCommonJava8Version              =  '2.4.0'
+
+        //material
+        googleMaterialVersion                            =  '1.4.0'
+        androidxConstraintLayoutVersion                  =  '2.1.1'
+        androidxNavigationFragmentKtxVersion             =  '2.3.5'
+        androidxNavigationUIKtxVersion                   =  '2.3.5'
+
+        //log
+        timberVersion                                    =  '4.7.1'
+
+        //gson
+        gsonVersion                                      =  '2.8.8'
+
+        //image
+        glideVersion                                     =  '4.12.0'
+        glideCompilerVersion                             =  '4.12.0'
+
+        //core network
+        retrofit2Version                                 =  '2.9.0'
+        retrofit2ConverterGson                           =  '2.9.0'
+        retrofit2AdapterRxJava3Version                   =  '2.9.0'
+        okHttp3Version                                   =  '4.9.1'
+        okHttp3LoggingInterceptorVersion                 =  '4.9.0'
+
+        //koin
+        koinAndroidVersion                               =  '2.0.1'
+        koinAndroidxScopeVersion                         =  '2.0.1'
+        koinAndroidxViewModelVersion                     =  '2.0.1'
+        koinAndroidxExtVersion                           =  '2.0.1'
+
+        //coroutines
+        kotlinxCoroutinesAndroidVersion                  =  '1.5.1'
+        kotlinxCoroutinesCoredVersion                    =  '1.5.1'
+
+        //room
+        roomKtxVersion                                   =  '2.3.0'
+        roomCompilerVersion                              =  '2.3.0'
+        roomTestingVersion                               =  '2.3.0'
+}
+
+project.ext {
+    //test
+    junit                                     = "junit:junit:$project.junitVersion"
+
+    //android test
+    espressoCore                              = "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+    androidxTestJunit                         = "androidx.test.ext:junit:$androidxTestJunitVersion"
+
+    //android lib
+    androidxCoreKtx                           = "androidx.core:core-ktx:$androidxCoreKtxVersion"
+    androidxAppCompat                         = "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    androidxActivityKtx                       = "androidx.activity:activity-ktx:$androidxActivityVersion"
+
+    //android lifecycle
+    androidxLifecycleLiveDataKtx              = "androidx.lifecycle:lifecycle-livedata-ktx:$androidxLifecycleLiveDataKtxVersion"
+    androidxLifecycleViewModelKtx             = "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycleViewModelKtxVersion"
+    androidxLifecycleCommonJava8              = "androidx.lifecycle:lifecycle-common-java8:$androidxLifecycleCommonJava8Version"
+
+    //material
+    googleMaterial                            = "com.google.android.material:material:$googleMaterialVersion"
+    androidxConstraintLayout                  = "androidx.constraintlayout:constraintlayout:$androidxConstraintLayoutVersion"
+    androidxNavigationFragmentKtx             = "androidx.navigation:navigation-fragment-ktx:$androidxNavigationFragmentKtxVersion"
+    androidxNavigationUIKtx                   = "androidx.navigation:navigation-ui-ktx:$androidxNavigationUIKtxVersion"
+
+    //log
+    timber                                    = "com.jakewharton.timber:timber:$timberVersion"
+
+    //gson
+    gson                                      = "com.google.code.gson:gson:$gsonVersion"
+
+    //image
+    glide                                     = "com.github.bumptech.glide:glide:$glideVersion"
+    glideCompiler                             = "com.github.bumptech.glide:compiler:$glideCompilerVersion"
+
+    //core network
+    retrofit2                                 = "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    retrofit2ConverterGson                    = "com.squareup.retrofit2:converter-gson:$retrofit2ConverterGson"
+    retrofit2AdapterRxJava3                   = "com.squareup.retrofit2:adapter-rxjava3:$retrofit2AdapterRxJava3Version"
+    okHttp3                                   = "com.squareup.okhttp3:okhttp:$okHttp3Version"
+    okHttp3LoggingInterceptor                 = "com.squareup.okhttp3:logging-interceptor:$okHttp3LoggingInterceptorVersion"
+
+    //koin
+    koinAndroid                               = "io.insert-koin:koin-android:$koinAndroidVersion"
+    koinAndroidxScope                         = "io.insert-koin:koin-androidx-scope:$koinAndroidxScopeVersion"
+    koinAndroidxViewModel                     = "io.insert-koin:koin-androidx-viewmodel:$koinAndroidxViewModelVersion"
+    koinAndroidxExt                           = "io.insert-koin:koin-androidx-ext:$koinAndroidxExtVersion"
+
+    //coroutines
+    kotlinStdLibJdk7                          = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
+    kotlinxCoroutinesAndroid                  = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesAndroidVersion"
+    kotlinxCoroutinesCore                     = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesCoredVersion"
+
+    //room
+    roomKtx                                   = "androidx.room:room-ktx:$roomKtxVersion"
+    roomCompiler                              = "androidx.room:room-compiler:$roomCompilerVersion"
+    roomTest                                  = "androidx.room:room-testing:$roomTestingVersion"
+
+    //firebase
+    firebaseAnalyticsKtx                      = "com.google.firebase:firebase-analytics-ktx"
+    firebaseCrashlyticsKtx                    = "com.google.firebase:firebase-crashlytics-ktx"
+}

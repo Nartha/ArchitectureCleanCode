@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+android {
+    compileSdk rootProject.compileSdk_version
+
+    defaultConfig {
+        applicationId "com.example.thelynx"
+        minSdk rootProject.minSdk_version
+        targetSdk rootProject.targetSdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    //test
+    testImplementation          junit
+
+    //android test
+    implementation              androidxCoreKtx
+    implementation              androidxAppCompat
+
+    //android lib
+    androidTestImplementation   espressoCore
+    androidTestImplementation   androidxTestJunit
+    androidTestImplementation   androidxActivityKtx
+
+    //android lifecycle
+    implementation              androidxLifecycleLiveDataKtx
+    implementation              androidxLifecycleViewModelKtx
+
+    //material
+    implementation              googleMaterial
+    implementation              androidxConstraintLayout
+    implementation              androidxNavigationFragmentKtx
+    implementation              androidxNavigationUIKtx
+
+    //log
+    implementation              timber
+
+    //gson
+    implementation              gson
+
+    //image
+    implementation              glide
+    implementation              glideCompiler
+
+
+    //core network
+    implementation              retrofit2
+    implementation              retrofit2ConverterGson
+    implementation              retrofit2AdapterRxJava3
+    implementation              okHttp3
+    implementation              okHttp3LoggingInterceptor
+
+    //koin
+    implementation              koinAndroid
+    implementation              koinAndroidxScope
+    implementation              koinAndroidxViewModel
+    implementation              koinAndroidxExt
+
+    //coroutines
+    api                         kotlinxCoroutinesAndroid
+    api                         kotlinxCoroutinesCore
+
+    //room
+    implementation              roomKtx
+    kapt                        roomCompiler
+    androidTestImplementation   roomTest
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation              firebaseAnalyticsKtx
+    implementation              firebaseCrashlyticsKtx
+}
