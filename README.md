@@ -1,4 +1,4 @@
-![Minimum SDK Version](https://img.shields.io/badge/minSdkVersion-24-brightgreen) 
+![Minimum SDK Version](https://img.shields.io/badge/minSdkVersion-26-brightgreen) 
 # ArchitectureCleanCode
 
 #### Contents
