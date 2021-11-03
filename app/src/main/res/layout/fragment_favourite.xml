@@ -6,17 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.favourite.FavouriteFragment">
 
-    <TextView
-        android:id="@+id/tv_favourite"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavouriteUserList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_start_8"
-        android:layout_marginTop="@dimen/margin_top_8"
-        android:layout_marginEnd="@dimen/margin_end_8"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_size_20"
+        android:layout_height="match_parent"
+        android:background="@color/color_nero"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_github_user"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

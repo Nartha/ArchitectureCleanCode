@@ -3,6 +3,7 @@ package com.example.thelynx.service.repository
 import android.content.Context
 import com.example.thelynx.service.core.*
 import com.example.thelynx.service.core.api.GithubUserList
+import timber.log.Timber
 
 interface MainRepository {
     suspend fun getDataGitHubUserList(): ResultResponse<GithubUserList>
@@ -16,6 +17,7 @@ class MainRepoImpl(
         return try {
             if (connectNetwork(context)) {
                 val response = api.getDataUserList()
+                Timber.i("Response HTTP: $response")
                 if (response.isSuccessful) {
                     success(response)
                 }

@@ -4,26 +4,25 @@ import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thelynx.R
+import com.example.thelynx.databinding.ItemGithubUserBinding
+import com.example.thelynx.room.table.UserListEntity
+import com.example.thelynx.ui.base.BaseRecyclerView
 import com.example.thelynx.utils.SharedPreference
 import com.example.thelynx.utils.loadImage
-import com.example.thelynx.databinding.ItemGithubUserBinding
-import com.example.thelynx.service.core.api.UserList
-import com.example.thelynx.ui.base.BaseRecyclerView
-import timber.log.Timber
-import java.lang.RuntimeException
 
 class GitHubUserViewHolder(
     private val binding: ItemGithubUserBinding,
     private val context: Context,
     private val shared: SharedPreference,
-    private val itemClickLike: (() -> Unit)
+    private val itemClickLike: ((String, Boolean) -> Unit)
 ) :
     RecyclerView.ViewHolder(binding.root), BaseRecyclerView.Binder<String> {
 
+    private val sharedPref = SharedPreference(context)
+
     override fun bind(dataItem: Any?, position: Int) {
         val item = (dataItem as ArrayList<*>)[position]
-        (item as UserList).apply {
-            Timber.i("item: ${this.login} -> ${this.clickLike}")
+        (item as UserListEntity).apply {
             binding.tvLoginName.text = this.login
             binding.tvUrl.text = this.url
             context.loadImage(this.avatar_url, binding.imgAvatarUrl)
@@ -31,9 +30,9 @@ class GitHubUserViewHolder(
         }
 
         binding.imgFavourite.setOnClickListener {
-            item.clickLike = !shared.clickLike
-            Timber.i("item: ${item.login} -> ${item.clickLike}")
-            itemClickLike.invoke()
+            sharedPref.clickLike = !sharedPref.clickLike
+            item.clickLike = shared.clickLike
+            itemClickLike.invoke(item.node_id, item.clickLike)
             setViewClickLike(item.clickLike)
         }
     }

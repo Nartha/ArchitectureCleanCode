@@ -1,10 +1,9 @@
 package com.example.thelynx.ui.githubuserlist
 
-import android.widget.Toast
-import com.example.thelynx.utils.SharedPreference
 import com.example.thelynx.databinding.FragmentGithubUserListBinding
-import com.example.thelynx.service.core.api.GithubUserList
+import com.example.thelynx.room.table.UserListEntity
 import com.example.thelynx.ui.base.BaseFragment
+import com.example.thelynx.utils.SharedPreference
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
@@ -22,35 +21,17 @@ class GitHubUserListFragment : BaseFragment<FragmentGithubUserListBinding>() {
     }
 
     override fun setView() {
-        viewModel.userList.observe(this, {
-            it?.let {
-                Timber.i("test: $it")
-                if (it.isNotEmpty()) {
-                    Timber.i("test1: $it")
-                    showGitHubUserList(it as GithubUserList)
-                }
-                else {
-                    Timber.i("test2: $it")
-                    viewModel.getDataUserList()
-                }
-            }
+        viewModel.userListEntity.observe(this, {
+            showGitHubUserList(it.toMutableList())
         })
-        viewModel.dataGitHubUserList.observe(this, { showGitHubUserList(it) })
     }
 
-    private fun showGitHubUserList(userList: GithubUserList) {
-
+    private fun showGitHubUserList(userListEntity: MutableList<UserListEntity>) {
+        Timber.i("DataResponse: $userListEntity")
         binding.rvGithubUserList.apply {
-            adapter = GitHubUserAdapter(userList, sharedPref) {
-                sharedPref.clickLike = !sharedPref.clickLike
-                Toast.makeText(
-                    requireContext(),
-                    sharedPref.clickLike.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
+            adapter = GitHubUserAdapter(userListEntity, sharedPref) { nodeId, clickLike ->
+                viewModel.updateClickLikeUserListEntity(nodeId, clickLike)
             }
         }
-        Timber.i("DataResponse: $userList")
     }
-
 }
