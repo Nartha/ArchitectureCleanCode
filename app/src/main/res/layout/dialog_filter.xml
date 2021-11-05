@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_inset_dialog"
+    android:layout_marginTop="@dimen/margin_70"
+    android:paddingStart="@dimen/margin_15"
+    android:paddingBottom="@dimen/margin_15"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bgASC"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="@dimen/margin_15"
+        android:layout_marginEnd="@dimen/margin_15"
+        android:background="@drawable/shape_circle_white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterButton
+        android:id="@+id/btnFilterASC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_sort_asc"
+        app:layout_constraintTop_toTopOf="@+id/bgASC"
+        app:layout_constraintStart_toStartOf="@+id/bgASC"
+        app:layout_constraintBottom_toBottomOf="@id/bgASC"
+        app:layout_constraintEnd_toEndOf="@+id/bgASC"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bgDESC"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="@dimen/margin_15"
+        android:background="@drawable/shape_circle_white"
+        app:layout_constraintTop_toBottomOf="@+id/btnFilterASC"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterButton
+        android:id="@+id/btnFilterDESC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_sort_desc"
+        app:layout_constraintTop_toTopOf="@+id/bgDESC"
+        app:layout_constraintStart_toStartOf="@+id/bgDESC"
+        app:layout_constraintBottom_toBottomOf="@id/bgDESC"
+        app:layout_constraintEnd_toEndOf="@+id/bgDESC"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

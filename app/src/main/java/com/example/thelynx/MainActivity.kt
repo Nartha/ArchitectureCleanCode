@@ -1,15 +1,18 @@
 package com.example.thelynx
 
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.thelynx.databinding.ActivityMainBinding
 import com.example.thelynx.ui.base.BaseActivity
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -19,13 +22,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
     override fun setUpView(saveInstanceState: Bundle?) {
-        setSupportActionBar(binding.appBarMain.toolbar)
-        binding.appBarMain.apply {
-            toolbar.setBackgroundResource(R.color.black)
-            icFilter.setOnClickListener {
-                Toast.makeText(it.context, "click", Toast.LENGTH_LONG).show()
-            }
-        }
+        setSupportActionBar(binding.toolbar)
 
         navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -35,10 +32,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             ), binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
+
         binding.navView.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return findNavController(R.id.nav_host_fragment_content_main)
+            .navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

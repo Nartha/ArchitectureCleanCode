@@ -10,6 +10,7 @@
     <string name="menu_github_user_lists">Github UserList</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_setting">Settings</string>
+    <string name="menu_filter">Filter</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>

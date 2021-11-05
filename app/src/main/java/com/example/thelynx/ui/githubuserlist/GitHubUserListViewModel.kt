@@ -19,7 +19,9 @@ class GitHubUserListViewModel(
 ) : ViewModel() {
 
     val userListEntity = MutableLiveData<List<UserListEntity>>()
-    val filterFavourite = MutableLiveData<List<UserListEntity>>()
+    val userListFavourite = MutableLiveData<List<UserListEntity>>()
+    val filterASC = MutableLiveData<List<UserListEntity>>()
+    val filterDESC = MutableLiveData<List<UserListEntity>>()
 
     private fun getDataUserList() {
         viewModelScope.launch {
@@ -35,19 +37,19 @@ class GitHubUserListViewModel(
     }
 
     fun filterLike() {
-        CoroutineScope(Dispatchers.IO).launch {
-            filterFavourite.postValue(userListRepo.filterLike())
+        viewModelScope.launch {
+            userListFavourite.postValue(userListRepo.filterLike())
         }
     }
 
     fun updateClickLikeUserListEntity(node_id: String, clickLike: Boolean) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             userListRepo.updateClickLike(node_id, clickLike)
         }
     }
 
     private fun insertUserListEntity(githubUserList: GithubUserList) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             with(userListRepo.getAllUser()) {
                 if (this.isEmpty()) {
                     githubUserList.let {
@@ -70,13 +72,35 @@ class GitHubUserListViewModel(
     }
 
     fun getAllUser() {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             with(userListRepo.getAllUser()) {
                 if (this.isNotEmpty()) {
                     userListEntity.postValue(this)
                 } else {
                     getDataUserList()
                 }
+            }
+        }
+    }
+
+    fun getAlphabetizedByASC(filterPage: String) {
+        viewModelScope.launch {
+            if (filterPage == "FavouriteFragment") {
+                filterDESC.postValue(userListRepo.favouriteGetAlphabetizedASC())
+            }
+            else {
+                filterASC.postValue(userListRepo.getAlphabetizedByASC())
+            }
+        }
+    }
+
+    fun getAlphabetizedByDESC(filterPage: String) {
+        viewModelScope.launch {
+            if (filterPage == "FavouriteFragment") {
+                filterDESC.postValue(userListRepo.favouriteGetAlphabetizedDESC())
+            }
+            else {
+                filterDESC.postValue(userListRepo.getAlphabetizedByDESC())
             }
         }
     }

@@ -8,7 +8,7 @@ import com.example.thelynx.databinding.ItemGithubUserBinding
 import com.example.thelynx.room.table.UserListEntity
 import com.example.thelynx.ui.base.BaseRecyclerView
 import com.example.thelynx.utils.SharedPreference
-import com.example.thelynx.utils.loadImage
+import com.example.thelynx.ui.extension.loadImage
 
 class GitHubUserViewHolder(
     private val binding: ItemGithubUserBinding,

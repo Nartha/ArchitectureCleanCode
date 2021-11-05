@@ -8,6 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="gains_bo_ro">#FFDEDEDE</color>
+    <color name="nobel">#FF969696</color>
+
+    <color name="whisper">#FFE9E9E9</color>
+
 
     <color name="color_nero">#262626</color>
 </resources>
