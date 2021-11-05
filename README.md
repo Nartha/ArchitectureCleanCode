@@ -6,4 +6,5 @@
 * Clean Architecture
 * Koin
 * Crashlytics
+* Room
 
