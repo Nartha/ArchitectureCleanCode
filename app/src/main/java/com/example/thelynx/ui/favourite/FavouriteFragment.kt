@@ -3,6 +3,7 @@ package com.example.thelynx.ui.favourite
 import android.annotation.SuppressLint
 import android.view.Menu
 import android.view.MenuInflater
+import androidx.lifecycle.lifecycleScope
 import com.example.thelynx.R
 import com.example.thelynx.databinding.FragmentFavouriteBinding
 import com.example.thelynx.room.table.UserListEntity
@@ -12,6 +13,8 @@ import com.example.thelynx.ui.extension.filterOptionMenu
 import com.example.thelynx.ui.githubuserlist.GitHubUserAdapter
 import com.example.thelynx.ui.githubuserlist.GitHubUserListViewModel
 import com.example.thelynx.utils.SharedPreference
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
@@ -48,6 +51,10 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
         binding.rvFavouriteUserList.apply {
             adapter = GitHubUserAdapter(favouriteUserList, sharedPref) { nodeId, clickLike ->
                 viewModel.updateClickLikeUserListEntity(nodeId, clickLike)
+                lifecycleScope.launch {
+                    delay(300)
+                    viewModel.filterLike()
+                }
             }
             this.adapter?.notifyDataSetChanged()
         }
